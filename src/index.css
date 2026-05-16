@@ -1,0 +1,208 @@
+:root {
+  color: #18212b;
+  background:
+    radial-gradient(circle at top left, rgba(255, 214, 153, 0.55), transparent 30%),
+    linear-gradient(180deg, #f7f4ea 0%, #eef3f8 100%);
+  font-family: "Avenir Next", "Noto Sans TC", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.hero {
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.hero p {
+  margin: 8px 0 0;
+  max-width: 720px;
+  color: #4b5b69;
+}
+
+.map-panel {
+  margin-bottom: 20px;
+}
+
+.map-frame {
+  overflow: hidden;
+  border: 1px solid rgba(24, 33, 43, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(28, 44, 64, 0.12);
+}
+
+.map-frame .leaflet-container {
+  height: min(62vh, 560px);
+  width: 100%;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid rgba(24, 33, 43, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 42px rgba(28, 44, 64, 0.08);
+}
+
+.card h2,
+.park-card h3 {
+  margin: 0;
+}
+
+.card--debug {
+  grid-column: 1 / -1;
+}
+
+.park-list {
+  display: grid;
+  gap: 12px;
+}
+
+.park-card {
+  padding: 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid rgba(24, 33, 43, 0.08);
+}
+
+.park-card__header {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.park-card__header p {
+  margin: 8px 0 0;
+  color: #5d6a76;
+}
+
+.count-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ghost-button,
+.count-button {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease, background-color 120ms ease;
+}
+
+.ghost-button:hover,
+.count-button:hover {
+  transform: translateY(-1px);
+}
+
+.ghost-button {
+  padding: 10px 14px;
+  color: #fff;
+  background: #1b4965;
+}
+
+.count-button {
+  padding: 8px 12px;
+  color: #18212b;
+  background: #dbeaf7;
+}
+
+.selected-park p {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.debug-output {
+  margin: 0;
+  padding: 16px;
+  overflow: auto;
+  border-radius: 18px;
+  background: #10141a;
+  color: #dce7f4;
+  font-size: 0.875rem;
+}
+
+.park-marker-icon {
+  background: transparent;
+  border: 0;
+}
+
+.marker {
+  position: relative;
+  width: 44px;
+  height: 56px;
+}
+
+.marker__svg {
+  display: block;
+  width: 44px;
+  height: 56px;
+  filter: drop-shadow(0 10px 16px rgba(28, 44, 64, 0.18));
+}
+
+.marker__count {
+  position: absolute;
+  inset: 11px auto auto 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #fff;
+  color: #cf1830;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(24, 33, 43, 0.15);
+}
+
+.marker--disabled .marker__count {
+  color: #66717d;
+}
+
+.marker__count--hidden {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .park-card__header {
+    flex-direction: column;
+  }
+}
